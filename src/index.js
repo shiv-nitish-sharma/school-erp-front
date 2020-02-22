@@ -1,19 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from '../src/application/App';
-import App2 from "../src/application/App2";
 import * as serviceWorker from './serviceWorker';
+import App from './App';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 let hostName = window.location.host;
+let pathname = window.location.pathname
+console.log("pathname", pathname)
 
-if (hostName === 'localhost:3000') {
-    ReactDOM.render(<App hostName={hostName} />, document.getElementById('root'));
 
-} else {
-    ReactDOM.render(<App2 hostName={hostName} />, document.getElementById('root'));
+ReactDOM.render(<Router><App hostName={hostName} /></Router>, document.getElementById('root'));
 
-}
+
 // ReactDOM.render(<App hostName={hostName} />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
